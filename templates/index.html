@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Real-Time Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Join Screen -->
+    <div id="join-screen">
+        <div class="container">
+            <h1>Welcome to the Live Chat</h1>
+            <div class="join-form">
+                <input type="text" id="nickname-input" placeholder="Enter your nickname" maxlength="20">
+                <button id="join-button">Join Chat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div id="chat-screen" style="display: none;">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>Flask Real-Time Chat</h2>
+            </div>
+            <div class="chat-main">
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will be inserted here -->
+                </div>
+                <div class="online-users">
+                    <h3>Online Users</h3>
+                    <ul id="users-list">
+                        <!-- Online users will be listed here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Type your message here...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
